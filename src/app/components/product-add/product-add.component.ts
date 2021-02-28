@@ -8,27 +8,28 @@ import {ProductServices} from '../../services/products.service';
   styleUrls: ['./product-add.component.css']
 })
 export class ProductAddComponent implements OnInit {
-  productFormGroup?: FormGroup
-  submitted: boolean =  false
+  productFormGroup?: FormGroup;
+  submitted: boolean =  false;
 
-  constructor(private fb:FormBuilder, private productService:ProductServices) { }
+  constructor(private fb: FormBuilder, private productService: ProductServices) { }
 
   ngOnInit(): void {
     this.productFormGroup = this.fb.group({
-      name: ["", Validators.required],
+      name: ['', Validators.required],
       price: [0, Validators.required],
       quantity: [0, Validators.required],
       selected: [true, Validators.required],
       available: [true, Validators.required]
-    })
+    });
   }
 
+  // tslint:disable-next-line:typedef
   onSaveProduct() {
-    this.submitted = true
-    if (this.productFormGroup?.invalid) return
+    this.submitted = true;
+    if (this.productFormGroup?.invalid) { return; }
     this.productService.saveProduct(this.productFormGroup?.value)
-      .subscribe(data=>{
-        alert("Succes saving product")
-      })
+      .subscribe(data => {
+        alert('Succes saving product');
+      });
   }
 }

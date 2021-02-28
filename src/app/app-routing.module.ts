@@ -6,10 +6,10 @@ import {ProductAddComponent} from './components/product-add/product-add.componen
 import {ProductEditComponent} from './components/product-edit/product-edit.component';
 
 const routes: Routes = [
-  {path: "products",  component:ProductsComponent},
-  {path: "newProduct",  component:ProductAddComponent},
-  {path: "editProduct/:id",  component:ProductEditComponent},
-  {path: "",  component:HomeComponent},
+  {path: 'products',  component: ProductsComponent},
+  {path: 'newProduct',  component: ProductAddComponent},
+  {path: 'editProduct/:id',  component: ProductEditComponent},
+  {path: '',  component: HomeComponent},
 
 
 ];
