@@ -21,8 +21,6 @@ export class EventDriverService {
         this.sourceEventSubject2.next(event); break;
       case ProductActionTypes.PRODUCT_UPDATED:
         this.sourceEventSubject2.next(event); break;
-      case ProductActionTypes.PRODUCT_DELETED:
-        this.sourceEventSubject2.next(event); break;
       default:
         this.sourceEventSubject.next(event); break
     }

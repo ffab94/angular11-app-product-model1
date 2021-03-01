@@ -76,9 +76,9 @@ export class ProductsComponent implements OnInit {
     if (conf === true) {
       this.productService.deleteProduct(p)
         .subscribe(data => {
-
-          this.onGetAllProducts();
           // this.eventDriverService.publishEvent({type: ProductActionTypes.DELETE_PRODUCT});
+          this.onGetAllProducts();
+
       });
     }
   }
