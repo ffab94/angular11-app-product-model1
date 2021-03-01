@@ -15,14 +15,6 @@
       "quantity": 100,
       "selected": true,
       "available": false
-    },
-    {
-      "name": "Printer",
-      "price": "2000",
-      "quantity": "140",
-      "selected": false,
-      "available": true,
-      "id": 4
     }
   ]
 }

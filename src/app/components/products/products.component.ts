@@ -5,6 +5,7 @@ import {Observable, of} from 'rxjs';
 import {catchError, map, startWith} from 'rxjs/operators';
 import {ActionEvent, AppDataState, DataStateEnum, ProductActionTypes} from '../../state/product.state.ps';
 import {Router} from '@angular/router';
+import {EventDriverService} from '../../services/event-driver.service';
 
 @Component({
   selector: 'app-products',
@@ -15,10 +16,14 @@ export class ProductsComponent implements OnInit {
   products$: Observable<AppDataState<Product[]>>| null = null;
   readonly DataStateEnum = DataStateEnum;
 
-  constructor(private productService: ProductServices, private router: Router) {
+  constructor(private productService: ProductServices, private router: Router,
+              private eventDriverService: EventDriverService) {
   }
 
   ngOnInit(): void {
+    this.eventDriverService.sourceEventSubjectObservable.subscribe((actionEvent: ActionEvent) => {
+      this.onActionEvent(actionEvent);
+    });
   }
 
   // tslint:disable-next-line:typedef
@@ -71,7 +76,9 @@ export class ProductsComponent implements OnInit {
     if (conf === true) {
       this.productService.deleteProduct(p)
         .subscribe(data => {
+
           this.onGetAllProducts();
+          // this.eventDriverService.publishEvent({type: ProductActionTypes.DELETE_PRODUCT});
       });
     }
   }

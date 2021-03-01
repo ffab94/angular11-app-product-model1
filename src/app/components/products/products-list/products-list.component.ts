@@ -12,7 +12,7 @@ export class ProductsListComponent implements OnInit {
 
   @Input() productsInput$: Observable<AppDataState<Product[]>>| null = null;
 
-  @Output() productsEventEmitter: EventEmitter<ActionEvent> = new EventEmitter();
+  // @Output() productsEventEmitter: EventEmitter<ActionEvent> = new EventEmitter();
   readonly DataStateEnum = DataStateEnum;
 
   constructor() { }
@@ -21,7 +21,10 @@ export class ProductsListComponent implements OnInit {
   }
 
 
-  onActionEvent($event: ActionEvent) {
+  /*
+   onActionEvent($event: ActionEvent) {
     this.productsEventEmitter.emit($event);
   }
+  */
+
 }

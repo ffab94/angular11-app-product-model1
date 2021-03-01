@@ -5,8 +5,11 @@ export enum ProductActionTypes {
   SEARCH_PRODUCTS = '[Product] Search Products',
   NEW_PRODUCT = '[Product] New Product',
   SELECT_PRODUCT = '[Product] Select Product',
+  EDIT_PRODUCT = '[Product] Edit Product',
   DELETE_PRODUCT = '[Product] Delete Product',
-  EDIT_PRODUCT = '[Product] Edit Product'
+  PRODUCT_ADDED = '[Product] Product Added',
+  PRODUCT_UPDATED = '[Product] Product Updated',
+  PRODUCT_DELETED = '[Product] Product Deleted'
 }
 
 export interface ActionEvent {
